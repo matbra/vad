@@ -48,7 +48,7 @@ S=[S S(:,append_ndx)];
 % frequency smoothing
 S_M=[];
 for k=1:size(S,1)
-	S_M(k,:)=(smooth(S(k,:),M,'moving'));
+    S_M(k, :) = filter(ones(M, 1) / M, 1, S(k,:));
 end
 % normalized spectrogram
 S_R=[];
